@@ -15,6 +15,8 @@ namespace Maui_RecipeDemo
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddTransient<DetailPage>();
+
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

@@ -10,5 +10,6 @@ namespace Maui_RecipeDemo
 
             MainPage = new MainPage();
         }
+
     }
 }
