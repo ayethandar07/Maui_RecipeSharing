@@ -1,42 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Maui_RecipeDemo.MainPage">
+             x:Class="Maui_RecipeDemo.MainPage"             
+             xmlns:local="clr-namespace:Maui_RecipeDemo"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             BackgroundColor="{DynamicResource White}">   
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" Grid.Row="0">
+            <Image 
+                Aspect="AspectFit"
+                HeightRequest="50"
+                Source="img.png"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"/>
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+            <Label 
+                FontSize="18" 
+                FontAttributes="Bold"
+                Text="Myanmar Recipe Sharing"
+                FontFamily="Raleway"
+                TextColor="#81c408"
+                VerticalOptions="Center"/>
+        </StackLayout>
+        
+        
+        <Grid VerticalOptions="StartAndExpand" Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+            <Frame Grid.Column="0" 
+                   CornerRadius="8"
+                   BorderColor="#81c408"
+                   Padding="0"
+                   HasShadow="False"
+                   VerticalOptions="CenterAndExpand">   
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+                    <Image 
+                           Source="orange.jpg"
+                           HorizontalOptions="CenterAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           Aspect="AspectFit"/>
 
-        </VerticalStackLayout>
-    </ScrollView>
+                    <Label 
+                           Grid.Row="1"
+                           Text="Your text paragraph goes here..."
+                           FontSize="14"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="Center"/> 
+                </Grid>
+            </Frame>
+        </Grid>
 
-    
+    </Grid>
 </ContentPage>
