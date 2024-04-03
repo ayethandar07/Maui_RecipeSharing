@@ -8,7 +8,7 @@ namespace Maui_RecipeDemo.Models
 {
     public class Recipe
     {
-        public int Id { get; set; }
+        public int RecipeId { get; set; }
         public string Title { get; set; }
         public List<Ingredient> Ingredients { get; set; }
         public List<string> Method { get; set; }

@@ -1,4 +1,6 @@
-﻿namespace Maui_RecipeDemo
+﻿using Maui_RecipeDemo.Data;
+
+namespace Maui_RecipeDemo
 {
     public partial class App : Application
     {

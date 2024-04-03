@@ -6,12 +6,8 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              BackgroundColor="{DynamicResource White}">   
 
-    <Grid VerticalOptions="FillAndExpand">
+    <Grid x:Name="grid" VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -32,40 +28,27 @@
                 TextColor="#81c408"
                 VerticalOptions="Center"/>
         </StackLayout>
-        
-        
-        <Grid VerticalOptions="StartAndExpand" Grid.Row="1" Margin="20">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+                
+        <CollectionView x:Name="collectionView" Grid.Row="2" Margin="20">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="8" BorderColor="#81c408" Padding="0" Margin="5, 15">
+                        <StackLayout>
+                            <Image 
+                               Source="{Binding ImageURL}"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               Aspect="AspectFit"/>
+                            <Label Text="{Binding Title}" HorizontalOptions="Start" VerticalOptions="Start" Padding="10" FontAttributes="Bold" FontSize="15"/>
+                            <Label Text="{Binding Method[0]}" HorizontalOptions="Start" VerticalOptions="Start" Padding="10"/>
+                            <Label Text="{Binding Method[1]}" HorizontalOptions="Start" VerticalOptions="Start" Padding="10"/>
+                            <Button Text="... see more" Clicked="OnSeeMoreClicked" CommandParameter="{Binding RecipeId}" HorizontalOptions="Start" VerticalOptions="Start" Padding="10" BackgroundColor="Transparent" TextColor="Black"/>
+                        </StackLayout>
+                    </Frame>                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
-            <Frame Grid.Column="0" 
-                   CornerRadius="8"
-                   BorderColor="#81c408"
-                   Padding="0"
-                   HasShadow="False"
-                   VerticalOptions="CenterAndExpand">   
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Image 
-                           Source="orange.jpg"
-                           HorizontalOptions="CenterAndExpand"
-                           VerticalOptions="CenterAndExpand"
-                           Aspect="AspectFit"/>
-
-                    <Label 
-                           Grid.Row="1"
-                           Text="Your text paragraph goes here..."
-                           FontSize="14"
-                           VerticalOptions="CenterAndExpand"
-                           HorizontalOptions="Center"/> 
-                </Grid>
-            </Frame>
-        </Grid>
 
     </Grid>
 </ContentPage>
